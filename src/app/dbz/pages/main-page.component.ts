@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Character } from '../interfaces/character.interface';
 
 @Component({
@@ -7,7 +7,8 @@ import { Character } from '../interfaces/character.interface';
 })
 
 export class MainPageComponent {
-    public character: Character[] = [
+
+    public characters: Character[] = [
     {
         name: 'Krillin',
         power: 1000
@@ -21,4 +22,12 @@ export class MainPageComponent {
         power: 7500
     }
 ];
+
+    addNewCharacter(character : Character): void {
+        this.characters.push(character);
+    }
+
+    deleteCharacter(index: number): void {
+        this.characters.splice(index,1);
+    }
 }
